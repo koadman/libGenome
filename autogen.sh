@@ -1,7 +1,7 @@
 #!/bin/sh
 (libtoolize || glibtoolize) && \
 aclocal && \
-echo "Ignore any messages about adding aclocal.m4 && \
+echo "Ignore any messages about adding libtool.m4 to aclocal.m4" && \
 autoheader && \
 automake -a && \
 autoconf && \
