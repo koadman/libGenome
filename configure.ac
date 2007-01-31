@@ -12,15 +12,17 @@ GENERIC_LIBRARY_NAME=libGenome
 
 #release versioning
 GENERIC_MAJOR_VERSION=1
-GENERIC_MINOR_VERSION=2
+GENERIC_MINOR_VERSION=3
 GENERIC_MICRO_VERSION=0
 
 #API version (often = GENERIC_MAJOR_VERSION.GENERIC_MINOR_VERSION)
-GENERIC_API_VERSION=1.1
+GENERIC_API_VERSION=1.3
 AC_SUBST(GENERIC_API_VERSION)
+GENERIC_API_UNDERSCORE_VERS=1_3
+AC_SUBST(GENERIC_API_UNDERSCORE_VERS)
 
 #shared library versioning
-GENERIC_LIBRARY_VERSION=1:2:0
+GENERIC_LIBRARY_VERSION=1:3:0
 #                       | | |
 #                +------+ | +---+
 #                |        |     |
@@ -105,4 +107,4 @@ AC_PROG_GCC_TRADITIONAL
 dnl SAVE_LIBRARY_VERSION
 AC_SUBST(LIBTOOL_VERSION_INFO)
 
-AC_OUTPUT(Makefile libGenome/Makefile doc/Makefile libGenome-1.1.pc )
+AC_OUTPUT(Makefile libGenome/Makefile doc/Makefile libGenome-1.3.pc )

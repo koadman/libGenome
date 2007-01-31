@@ -35,9 +35,9 @@ library_includedir=$(includedir)/$(GENERIC_LIBRARY_NAME)-$(GENERIC_API_VERSION)/
 
 library_include_HEADERS = $(LIBGENOME_H)
 
-lib_LTLIBRARIES = libGenome-1.1.la
-libGenome_1_1_la_SOURCES = $(LIBGENOME_SRC)
-libGenome_1_1_la_LDFLAGS= -version-info $(GENERIC_LIBRARY_VERSION) -release $(GENERIC_RELEASE)
+lib_LTLIBRARIES = libGenome-1.3.la
+libGenome_1_3_la_SOURCES = $(LIBGENOME_SRC)
+libGenome_1_3_la_LDFLAGS= -version-info $(GENERIC_LIBRARY_VERSION) -release $(GENERIC_RELEASE)
 
 
 
