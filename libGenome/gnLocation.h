@@ -125,7 +125,7 @@ public:
 	 * @see intersectRestriction 
 	 * @return True if the location still exists, false if the crop amount is larger than the location.
 	 */
-	boolean Intersects( const gnLocation &l, const intersectRestriction ir = allRegions ) const;
+	boolean Intersects( const gnLocation &l, const intersectRestriction ir = determinedRegions ) const;
 	/**
 	 * Checks wether another gnLocation is contained by this one.
 	 * @param l The gnLocation to be checked.
@@ -133,7 +133,7 @@ public:
 	 * @see intersectRestriction 
 	 * @return True if the location still exists, false if the crop amount is larger than the location.
 	 */
-	boolean Contains( const gnLocation& l, const intersectRestriction cr = allRegions ) const;
+	boolean Contains( const gnLocation& l, const intersectRestriction cr = determinedRegions ) const;
 	/**
 	 * Increases the location start and end.
 	 * @param diff The amount to increase the location start and end.

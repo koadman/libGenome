@@ -137,7 +137,7 @@ boolean gnLocation::CropStart( const gnSeqI start ){
 
 boolean gnLocation::CropEnd( const gnSeqI end ){
 	gnSeqI tmp;
-	if(m_end < end){
+	if(m_end > end){
 		tmp = end > m_start ? end : m_start;
 		m_endLength += m_end - tmp;
 		m_end = tmp;
