@@ -609,6 +609,8 @@ boolean gnGBKSource::ParseStream( istream& fin )
 		if(sectionStart > 0){
 			if(readState == 14)
 				sectionStart = lineStart;
+			else if( sectionStart >= lineStart )
+				sectionStart -= lineStart;
 			remainingBuffer = bufReadLen - newstart;
 			memmove(buf, buf+newstart, remainingBuffer);
 		}
@@ -616,7 +618,6 @@ boolean gnGBKSource::ParseStream( istream& fin )
 		fin.read( buf + remainingBuffer, BUFFER_SIZE - remainingBuffer);
 		streamPos -= remainingBuffer;
 		lineStart -= newstart;
-		sectionStart = 0;
 		bufReadLen = fin.gcount();
 		bufReadLen += remainingBuffer;
 		
@@ -850,7 +851,8 @@ boolean gnGBKSource::ParseStream( istream& fin )
 					break;
 				case 11:
 					if(ch != '"'){
-						curFeature->AddQualifier(new gnSourceQualifier(this, curQualifierName, curQualifierStart, i - sectionStart));
+						gnSourceQualifier* gnsq = new gnSourceQualifier(this, curQualifierName, curQualifierStart, i - sectionStart);
+						curFeature->AddQualifier(gnsq);
 						sectionStart = i+1;
 						readState = 7;	//look for another qualifier.
 						if(ch == '\n')
