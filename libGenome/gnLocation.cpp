@@ -152,7 +152,7 @@ boolean gnLocation::Intersects( const gnLocation &l, const intersectRestriction 
 	
 	if( ir == determinedRegions )
 	{
-		if( (l.GetFirst() <= m_end) && (l.GetLast() >= m_start) )
+		if( (l.GetStart() <= m_end) && (l.GetEnd() >= m_start) )
 			return true;
 	}
 	else if( ir == undeterminedRegions )
@@ -172,7 +172,7 @@ boolean gnLocation::Intersects( const gnLocation &l, const intersectRestriction 
 
 boolean gnLocation::Contains( const gnLocation &l, const intersectRestriction ir ) const{
 	if(ir == determinedRegions)
-		return m_start <= l.GetFirst() && l.GetLast() <= m_end;
+		return m_start <= l.GetStart() && l.GetEnd() <= m_end;
 	else if(ir == undeterminedRegions)
 		return  (GetFirst() <= l.GetFirst() && l.GetLast() < m_start) ||
 				(m_end < l.GetFirst() && l.GetLast() <= GetLast());
@@ -215,7 +215,7 @@ gnLocation gnLocation::GetIntersection( const gnLocation &l, const intersectRest
 	gnLocation inter_loc;
 	if( ir == determinedRegions )
 	{
-		if( (l.GetFirst() <= m_end) && (l.GetLast() >= m_start) ){
+		if( (l.GetStart() <= m_end) && (l.GetEnd() >= m_start) ){
 			inter_loc.m_start = l.m_start > m_start ? l.m_start : m_start;
 			inter_loc.m_end = l.m_end < m_end ? l.m_end : m_end;
 		}
