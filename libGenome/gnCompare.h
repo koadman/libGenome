@@ -63,7 +63,6 @@ public:
 	 * @see gnCompareType
 	 */
 	gnCompare( const gnCompareType c_type );
-	gnCompare( const gnCompare& sf );
 	~gnCompare();
 	
 	gnCompare* Clone() const;
@@ -100,6 +99,7 @@ public:
 	void RemoveContained( const gnSeqC ch, const gnSeqC ch2 );
 	
 private:
+	gnCompare( const gnCompare& sf ){};
 	void CreateProteinComparator();
 	void CreateDNAComparator();
 	void CreateRNAComparator();

@@ -88,7 +88,7 @@ gnCompare::gnCompare()
 		m_containArray[i][0] = 0;
 	}
 }
-
+/*
 gnCompare::gnCompare( const gnCompare &sf )
 {
 	m_name = sf.m_name;
@@ -99,6 +99,7 @@ gnCompare::gnCompare( const gnCompare &sf )
 		strcpy(m_containArray[i], sf.m_containArray[i]);
 	}
 }
+*/
 gnCompare::~gnCompare()
 {
 	for( gnSeqC i = 0; i < GNSEQC_MAX; ++i ){

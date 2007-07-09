@@ -22,6 +22,9 @@
 using namespace std;
 namespace genome {
 
+gnFileSource::gnFileSource() :
+m_pFilter(gnFilter::fullDNASeqFilter())
+{}
 
 //copy constructor
 gnFileSource::gnFileSource(const gnFileSource& gnfs){

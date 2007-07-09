@@ -34,7 +34,7 @@ namespace genome {
 class GNDLLEXPORT gnFileSource : public gnBaseSource
 {
 public:
-	gnFileSource(){}
+	gnFileSource();
 	gnFileSource(const gnFileSource& gnfs);
 	virtual ~gnFileSource(){}
 	virtual gnFileSource* Clone() const = 0;
