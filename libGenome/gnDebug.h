@@ -19,6 +19,9 @@
 #include <string>
 #include <iostream>
 
+#if(defined(WIN32))
+#include "intrin.h"
+#endif
 
 namespace genome {
 
@@ -27,7 +30,7 @@ inline
 void breakHere()
 {
 #if(defined(WIN32))
-	__asm int 3;
+__debugbreak();
 #endif
 }
 
