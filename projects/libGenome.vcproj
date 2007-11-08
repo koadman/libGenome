@@ -413,7 +413,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release OpenMP|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\lib"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="2"
@@ -461,7 +461,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/genome.lib"
+				OutputFile="$(OutDir)/genomeomp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -481,7 +481,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release OpenMP|x64"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\lib"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="2"
@@ -530,7 +530,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/genome64.lib"
+				OutputFile="$(OutDir)/genome64omp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -550,7 +550,7 @@
 		</Configuration>
 		<Configuration
 			Name="FastDebug OpenMP|Win32"
-			OutputDirectory="$(ConfigurationName)"
+			OutputDirectory="..\lib"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="2"
@@ -594,7 +594,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/genomefd.lib"
+				OutputFile="$(OutDir)/genomefdomp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -614,7 +614,7 @@
 		</Configuration>
 		<Configuration
 			Name="FastDebug OpenMP|x64"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\lib"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="2"
@@ -659,7 +659,7 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="$(OutDir)/genome64fd.lib"
+				OutputFile="$(OutDir)/genome64fdomp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
