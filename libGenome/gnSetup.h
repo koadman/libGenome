@@ -30,5 +30,32 @@
 #define GNDLLEXPORT_DATA
 #endif
 
+// attempt to auto-link the genome library on windows
+#if defined(WIN64)&&defined(NDEBUG)&&defined(_OPENMP)
+#pragma comment(lib, "genome64omp.lib")
+#endif
+#if defined(WIN64)&&!defined(NDEBUG)&&defined(_OPENMP)
+#pragma comment(lib, "genome64fdomp.lib")
+#endif
+#if defined(WIN32)&&!defined(WIN64)&&defined(NDEBUG)&&defined(_OPENMP)
+#pragma comment(lib, "genomeomp.lib")
+#endif
+#if defined(WIN32)&&!defined(WIN64)&&!defined(NDEBUG)&&defined(_OPENMP)
+#pragma comment(lib, "genomefdomp.lib")
+#endif
+#if defined(WIN64)&&defined(NDEBUG)&&!defined(_OPENMP)
+#pragma comment(lib, "genome64.lib")
+#endif
+#if defined(WIN64)&&!defined(NDEBUG)&&!defined(_OPENMP)
+#pragma comment(lib, "genome64fd.lib")
+#endif
+#if defined(WIN32)&&!defined(WIN64)&&defined(NDEBUG)&&!defined(_OPENMP)
+#pragma comment(lib, "genome.lib")
+#endif
+#if defined(WIN32)&&!defined(WIN64)&&!defined(NDEBUG)&&!defined(_OPENMP)
+#pragma comment(lib, "genomefd.lib")
+#endif
+
+
 #endif
 	//_gnSetup_h_
