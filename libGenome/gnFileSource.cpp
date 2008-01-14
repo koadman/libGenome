@@ -35,6 +35,9 @@ gnFileSource::gnFileSource(const gnFileSource& gnfs){
 	m_ifstream.open( m_openString.c_str(), ios::in | ios::binary );
 	if( !m_ifstream.is_open() )
 		m_ifstream.clear();
+	else{
+		omp_init_lock( &file_lock );
+	}
 }
 
 // Open, Close	
@@ -43,6 +46,8 @@ void gnFileSource::Open( string openString )
 	m_ifstream.open(openString.c_str(), ios::in | ios::binary );
 	if( m_ifstream.is_open() )
 	{
+		omp_init_lock( &file_lock );
+		omp_guard rex( file_lock );
 		m_openString = openString;
 		if( ParseStream(m_ifstream) )
 		{
@@ -51,6 +56,7 @@ void gnFileSource::Open( string openString )
 		else{
 			m_ifstream.clear();
 			m_ifstream.close();
+			omp_destroy_lock( &file_lock );
 		}
 	}else{
 		m_ifstream.clear();
@@ -64,10 +70,12 @@ void gnFileSource::Open( )
 		m_ifstream.clear();
 		Throw_gnEx(FileNotOpened());
 	}
+	omp_init_lock( &file_lock );
 }
 void gnFileSource::Close()
 {
 	m_ifstream.close();
+	omp_destroy_lock( &file_lock );
 	if( m_ifstream.is_open() )
 		Throw_gnEx(IOStreamFailed());
 }
@@ -85,6 +93,7 @@ boolean gnFileSource::Read( const uint64 pos, char* buf, gnSeqI& bufLen)
 
 void gnFileSource::DetermineNewlineType()
 {
+	omp_guard rex( file_lock );
 	// set default values
 	m_newlineType = gnNewlineUnix;
 	m_newlineSize = 1;

@@ -100,6 +100,7 @@ gnFileContig* gnFASSource::GetContig( const uint32 i ) const
 
 boolean gnFASSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ) 
 {
+	omp_guard rex( file_lock );
 	m_ifstream.clear();
 	uint32 contigIndex = contigI;
 	uint64 startPos = 0;
@@ -212,6 +213,7 @@ boolean gnFASSource::SeqSeek( const gnSeqI start, const uint32 contigI, uint64& 
 
 //Returns startPos, the file offset where the sequence starts.
 boolean gnFASSource::SeqStartPos( const gnSeqI start, gnFileContig& contig, uint64& startPos, uint64& readableBytes ){
+	omp_guard rex( file_lock );
 	readableBytes = 0;
 	uint32 curLen = 0;
 	//seek to the file offset where the contig starts
