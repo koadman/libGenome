@@ -82,6 +82,7 @@ void gnFileSource::Close()
 
 boolean gnFileSource::Read( const uint64 pos, char* buf, gnSeqI& bufLen) 
 {
+	omp_guard rex( file_lock );
 	m_ifstream.seekg(pos, ios::beg);
 	m_ifstream.read(buf, bufLen);
 	if(m_ifstream.fail()){

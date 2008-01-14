@@ -95,6 +95,7 @@ gnSeqI gnGBKSource::GetContigSeqLength( const uint32 i ) const
 }
 
 boolean gnGBKSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ){
+	omp_guard rex( file_lock );
 	uint64 startPos = 0;
 	uint64 readableBytes = 0;
 	if( !SeqSeek( start, contigI, startPos, readableBytes ) )
@@ -179,6 +180,7 @@ boolean gnGBKSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, con
 // returns true if successful, false otherwise
 boolean gnGBKSource::SeqSeek( const gnSeqI start, const uint32& contigI, uint64& startPos, uint64& readableBytes )
 {
+	omp_guard rex( file_lock );
 	if( contigI == ALL_CONTIGS )
 	{
 		// find first contig
@@ -206,6 +208,7 @@ boolean gnGBKSource::SeqSeek( const gnSeqI start, const uint32& contigI, uint64&
 //Returns startPos, the file offset where the sequence starts.
 boolean gnGBKSource::SeqStartPos( const gnSeqI start, gnFileContig& contig, uint64& startPos, uint64& readableBytes )
 {
+	omp_guard rex( file_lock );
 	readableBytes = 0;
 	uint32 curLen = 0;
 	//seek to the file offset where the contig starts
