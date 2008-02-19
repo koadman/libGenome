@@ -7,6 +7,6 @@ Name: libGenome
 Description: c++ library supporting sequence I/O and manipulation 
 Version: @VERSION@
 Requires: 
-Libs: -L${libdir} -lGenome-@GENERIC_API_VERSION@
-Cflags: -I${includedir}/@GENERIC_LIBRARY_NAME@-@GENERIC_API_VERSION@ 
+Libs: @OPENMP_CXXFLAGS@ -L${libdir} -lGenome-@GENERIC_API_VERSION@
+Cflags: @OPENMP_CXXFLAGS@ -I${includedir}/@GENERIC_LIBRARY_NAME@-@GENERIC_API_VERSION@ 
 

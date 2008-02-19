@@ -3,7 +3,7 @@ if DEBUG
 D_CXXFLAGS = -Wall -g -DCOMMAND_LINE -D__GNDEBUG__
 endif
 
-AM_CXXFLAGS = $(D_CXXFLAGS)
+AM_CXXFLAGS = $(D_CXXFLAGS) @OPENMP_CFLAGS@
 
 LIBGENOME_H = \
 gnABISource.h      gnDataBaseSource.h  gnLocation.h         gnSetup.h \
@@ -18,7 +18,7 @@ gnCompare.h        gnFilter.h          gnSEQSource.h        gnStringTools.h \
 gnContigSpec.h     gnFragmentSpec.h    gnTranslator.h \
 gnDNASequence.h    gnGBKSource.h       gnVersion.h   gnFastTranslator.h \
 gnGenomeSpec.h      gnSequence.h  gnException.h gnExceptionCode.h \
-IntervalSequenceTree.h
+IntervalSequenceTree.h OmpGuard.h
 
 
 LIBGENOME_SRC = \

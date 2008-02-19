@@ -95,6 +95,14 @@ AM_CONDITIONAL(DEBUG, test x$debug = xtrue)
 
 AM_CONFIG_HEADER(config.h)
 
+dnl Check for OpenMP
+AX_OPENMP()
+AC_SUBST(OPENMP_CFLAGS)
+dnl OpenMP checker only defines for C when compiling both C and C++
+dnl OPENMP_CXXFLAGS=$OPENMP_CFLAGS
+AC_SUBST(OPENMP_CXXFLAGS)
+
+
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
 AC_C_INLINE
