@@ -94,7 +94,6 @@ boolean gnFileSource::Read( const uint64 pos, char* buf, gnSeqI& bufLen)
 
 void gnFileSource::DetermineNewlineType()
 {
-	omp_guard rex( file_lock );
 	// set default values
 	m_newlineType = gnNewlineUnix;
 	m_newlineSize = 1;
