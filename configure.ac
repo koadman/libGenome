@@ -102,6 +102,9 @@ dnl OpenMP checker only defines for C when compiling both C and C++
 dnl OPENMP_CXXFLAGS=$OPENMP_CFLAGS
 AC_SUBST(OPENMP_CXXFLAGS)
 
+dnl Make doxygen docs
+DX_INIT_DOXYGEN( "libGenome", "projects/libGenome.doxygen", "doc" )
+
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -115,4 +118,4 @@ AC_PROG_GCC_TRADITIONAL
 dnl SAVE_LIBRARY_VERSION
 AC_SUBST(LIBTOOL_VERSION_INFO)
 
-AC_OUTPUT(Makefile libGenome/Makefile doc/Makefile libGenome-1.3.pc )
+AC_OUTPUT(Makefile libGenome/Makefile libGenome-1.3.pc )
