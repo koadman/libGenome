@@ -14,6 +14,7 @@
 #endif
 
 #include "libGenome/gnCompare.h"
+#include <cstring>
 
 //	public:
 

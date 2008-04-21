@@ -21,6 +21,7 @@
 #include "libGenome/gnSourceSpec.h"
 #include "libGenome/gnStringSpec.h"
 #include "libGenome/gnStringHeader.h"
+#include <cstring>
 
 
 using namespace std;

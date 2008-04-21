@@ -16,6 +16,7 @@
 
 #include "libGenome/gnFilter.h"
 #include "libGenome/gnDebug.h"
+#include <cstring>
 
 
 using namespace std;

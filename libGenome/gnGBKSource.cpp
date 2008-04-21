@@ -24,6 +24,7 @@
 #include "libGenome/gnDebug.h"
 #include "libGenome/gnStringQualifier.h"
 #include <string>
+#include <cstring>
 
 
 using namespace std;

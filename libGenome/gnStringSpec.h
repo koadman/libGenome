@@ -18,6 +18,8 @@
 
 #include "libGenome/gnDefs.h"
 
+#include <cstdlib>
+#include <cstring>
 #include <string>
 #include "libGenome/gnContigSpec.h"
 #include "libGenome/gnBaseSource.h"

@@ -23,6 +23,7 @@
 #include "libGenome/gnLocation.h"
 #include "libGenome/gnStringTools.h"
 #include "libGenome/gnDebug.h"
+#include <cstring>
 
 
 using namespace std;

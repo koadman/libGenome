@@ -20,6 +20,7 @@
 #include "libGenome/gnDefs.h"
 
 #include <string>
+#include <cstdlib>
 #include <iostream>
 #include <list>
 #include "libGenome/gnBaseSource.h"

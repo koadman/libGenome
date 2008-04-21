@@ -19,6 +19,7 @@
 #include "libGenome/gnDefs.h"
 
 #include <string>
+#include <cstring>
 #include <cctype>
 #include "libGenome/gnClone.h"
 
