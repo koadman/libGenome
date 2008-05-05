@@ -192,15 +192,6 @@ private:
 	gnBaseSource* m_pDefaultSourceClass;
 };//class gnSourceFactory
 
-inline
-gnSourceFactory* gnSourceFactory::GetSourceFactory()
-{
-	//use construct on first use method to avoid the static constructor
-	//initialization fiasco...
-	static gnSourceFactory* m_sSourceFactory = new gnSourceFactory();
-	return m_sSourceFactory;
-}
-
 // Plugin Sources
 inline
 uint32 gnSourceFactory::GetSourceClassListSize() const

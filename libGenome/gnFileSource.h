@@ -24,8 +24,6 @@
 #include "libGenome/gnFileContig.h"
 #include "libGenome/gnException.h"
 
-#include <libGenome/OmpGuard.h>
-
 namespace genome {
 
 /**
@@ -63,7 +61,6 @@ protected:
 	gnNewlineType m_newlineType;
 	uint32 m_newlineSize;
 
-	omp_lock_t file_lock;
 private:
 	virtual boolean ParseStream( std::istream& fin ) = 0;
 };// class gnFileSource

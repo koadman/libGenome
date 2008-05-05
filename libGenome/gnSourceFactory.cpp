@@ -59,6 +59,15 @@ gnSourceFactory::~gnSourceFactory()
 	}
 }
 
+gnSourceFactory* gnSourceFactory::GetSourceFactory()
+{
+	//use construct on first use method to avoid the static constructor
+	//initialization fiasco...
+	static gnSourceFactory* m_sSourceFactory = new gnSourceFactory();
+	return m_sSourceFactory;
+}
+
+
 boolean gnSourceFactory::DelSourceClass( const string& ext ){
 	map< string, gnBaseSource* >::iterator iter = m_sourceClassList.find( ext );
 	if( iter != m_sourceClassList.end() ){

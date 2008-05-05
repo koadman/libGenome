@@ -109,6 +109,7 @@ public:
 	
 	gnFileContig* GetFileContig( const uint32 contigI ) const;
 private:
+	boolean SeqReadImpl( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI=ALL_CONTIGS ) ;
 	boolean SeqSeek( const gnSeqI start, const uint32 contigI, uint64& startPos, uint64& readableBytes );
 	boolean SeqStartPos( const gnSeqI start, gnFileContig& contig, uint64& startPos, uint64& readableBytes );
 	boolean ParseStream( std::istream& fin );

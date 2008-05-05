@@ -95,8 +95,18 @@ gnSeqI gnGBKSource::GetContigSeqLength( const uint32 i ) const
 	return GNSEQI_ERROR;
 }
 
-boolean gnGBKSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ){
-	omp_guard rex( file_lock );
+boolean gnGBKSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI )
+{
+	boolean result = false;
+#pragma omp critical
+{
+	result = SeqReadImpl( start, buf, bufLen, contigI );
+}
+	return result;
+}
+
+boolean gnGBKSource::SeqReadImpl( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ){
+
 	uint64 startPos = 0;
 	uint64 readableBytes = 0;
 	if( !SeqSeek( start, contigI, startPos, readableBytes ) )

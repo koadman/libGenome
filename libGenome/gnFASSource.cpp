@@ -100,7 +100,16 @@ gnFileContig* gnFASSource::GetContig( const uint32 i ) const
 
 boolean gnFASSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ) 
 {
-	omp_guard rex( file_lock );
+	boolean result = true;
+#pragma omp critical
+{
+	result = SeqReadImpl( start, buf, bufLen, contigI );
+}
+	return result;
+}
+
+boolean gnFASSource::SeqReadImpl( const gnSeqI start, char* buf, gnSeqI& bufLen, const uint32 contigI ) 
+{
 	m_ifstream.clear();
 	uint32 contigIndex = contigI;
 	uint64 startPos = 0;
@@ -178,6 +187,7 @@ boolean gnFASSource::SeqRead( const gnSeqI start, char* buf, gnSeqI& bufLen, con
 		bufLen = curLen;
 	}
 	return true;
+
 }
 
 
