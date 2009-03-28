@@ -1,5 +1,8 @@
 dnl Process this file with autoconf to produce a configure script.
+AC_PREREQ([2.59])
 AC_INIT(libGenome/gnDefs.h)
+AC_CONFIG_AUX_DIR(config)
+AC_CONFIG_MACRO_DIR([m4])
 
 dnl Get the target and build system types and add appropriate options
 AC_CANONICAL_TARGET
