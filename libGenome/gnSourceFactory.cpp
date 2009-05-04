@@ -39,6 +39,8 @@ gnSourceFactory::gnSourceFactory()
 	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".SEQ", new gnSEQSource()));
 	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".gbk", new gnGBKSource()));
 	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".GBK", new gnGBKSource()));
+	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".gb", new gnGBKSource()));
+	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".GB", new gnGBKSource()));
 	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".raw", new gnRAWSource()));
 	m_sourceClassList.insert( map< string, gnBaseSource* >::value_type(".RAW", new gnRAWSource()));
 	m_pDefaultSourceClass = new gnFASSource();
