@@ -290,13 +290,13 @@ gnBaseSource* gnSourceFactory::HasSource( string sourceStr, boolean searchPaths 
 boolean gnSourceFactory::PathExists( string path ) const{
 #ifdef HAVE_UNISTD_H
 	standardizePathString( path );
-	char folder[FILENAME_MAX];
-	getcwd( folder, FILENAME_MAX );
+	char folder[FILENAME_MAX], *f2;
+	f2 = getcwd( folder, FILENAME_MAX );
 	
 	if( chdir( path.c_str() ) ){
 		return false;
 	}
-	chdir( folder );
+	int err = chdir( folder );
 #endif
 	return true;
 }
