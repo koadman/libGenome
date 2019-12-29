@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.59])
-AC_INIT(libGenome/gnDefs.h)
+AC_INIT([libGenome], [1.3.1])
+AC_CONFIG_SRCDIR([libGenome/gnDefs.h])
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_MACRO_DIR([m4])
 
@@ -58,7 +59,7 @@ AC_SUBST(GENERIC_VERSION)
 
 VERSION=$GENERIC_VERSION
 
-AM_INIT_AUTOMAKE($PACKAGE, $VERSION, no-define)
+AM_INIT_AUTOMAKE(no-define)
 
 
 

@@ -3,7 +3,7 @@ if DEBUG
 D_CXXFLAGS = -Wall -g -DCOMMAND_LINE -D__GNDEBUG__
 endif
 
-AM_CXXFLAGS = $(D_CXXFLAGS) @OPENMP_CFLAGS@
+AM_CXXFLAGS = $(D_CXXFLAGS) @OPENMP_CFLAGS@ -I$(top_srcdir)
 
 LIBGENOME_H = \
 gnABISource.h      gnDataBaseSource.h  gnLocation.h         gnSetup.h \
@@ -40,8 +40,6 @@ libGenome_1_3_la_SOURCES = $(LIBGENOME_SRC)
 libGenome_1_3_la_LDFLAGS= -version-info $(GENERIC_LIBRARY_VERSION) 
 
 
-
-INCLUDES = -I$(top_srcdir)
 
 check_PROGRAMS = TestRevComp
 TestRevComp_SOURCES = TestRevComp.cpp
